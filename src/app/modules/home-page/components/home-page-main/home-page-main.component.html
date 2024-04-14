@@ -1,0 +1,24 @@
+<app-header></app-header>
+<app-home-search></app-home-search>
+
+<app-home-current-weather-wrapper>
+  <ng-template let-data>
+    <app-home-current-weather [data]="data"></app-home-current-weather>
+  </ng-template>
+</app-home-current-weather-wrapper>
+
+
+<app-home-home-future-weather-wrapper>
+  <ng-template let-data>
+    <app-toggle-btn [toolTip]="(darkModeTheme$ | async) ? 'Light Mode' : 'Dark Mode'"
+      [toggleValue]="(chartViewNextWeather$ | async)!" [toggleIconTrue]="'insert_chart'"
+      [toggleIconFalse]="'insert_chart_outlined'" (toggleEmitter)="changeViewNextWeather($event)"></app-toggle-btn>
+    <ng-container *ngIf="(chartViewNextWeather$ | async); then chart; else list"></ng-container>
+    <ng-template #list>
+      <app-home-future-weather-list [data]="data?.DailyForecasts"></app-home-future-weather-list>
+    </ng-template>
+    <ng-template #chart>
+      <app-home-future-weather-chart [data]="data?.DailyForecasts"></app-home-future-weather-chart>
+    </ng-template>
+  </ng-template>
+</app-home-home-future-weather-wrapper>

@@ -1,0 +1,24 @@
+html {
+  --color-accent: #0ca3ee;
+  --color-dark: #333333;
+  --color-bg: rgb(255, 255, 255);
+}
+
+html[dark-theme="true"] {
+  --color-accent: #d6b8ff;
+  --color-dark: #eaeaea;
+  --color-bg: rgb(42, 42, 42);
+}
+
+$color-text: #333333;
+$color-other: darkslategray;
+
+$xl: 1140px;
+$lg: 992px;
+$md: 768px;
+$sm: 576px;
+$sm: 576px;
+$es: 400px;
+
+$gap: 20px;
+$gap-x2: $gap * 2;

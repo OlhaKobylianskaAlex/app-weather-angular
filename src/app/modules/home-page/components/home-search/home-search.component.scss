@@ -1,0 +1,28 @@
+@import "../../../../../assets/styles/variables.scss";
+@import "../../../../../assets/styles/mixins.scss";
+
+:host {
+  width: 100%;
+}
+
+.search {
+  @include flex(center, center, 0, row);
+  margin: 0 auto;
+  padding-top: 40px;
+
+  &-form {
+    width: 100%;
+  }
+
+  &-spinner {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+
+    mat-progress-spinner {
+      width: 40px !important;
+      height: 40px !important;
+      color: red !important;
+    }
+  }
+}

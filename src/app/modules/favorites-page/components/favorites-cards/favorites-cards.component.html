@@ -1,0 +1,19 @@
+<div class="favorites" *ngIf="data?.length">
+  <mat-card *ngFor="let item of data" class="favorites-items" (click)="toTheCurrentWeather(item)">
+    <mat-card-content class="favorites-items__content">
+      <div class="favorites-items__location">{{item.LocalizedName}}</div>
+      <div class="favorites-items__degree">{{(imperialMeasure$ | async) ? item.Temperature.Imperial.Value + ' ' +
+        item.Temperature.Imperial.Unit : item.Temperature.Metric.Value + '&#176;C'}}
+      </div>
+      <div class="favorites-items__images">
+        <img src="../../../../assets/images/weather-icons/{{item.WeatherIcon}}.png" alt="img">
+      </div>
+      <div class="favorites-items__condition">{{item.WeatherText}}</div>
+    </mat-card-content>
+  </mat-card>
+</div>
+<div *ngIf="!data?.length" class="favorites-description">
+  <span>If you want to add a location to favorite click on</span>
+  <mat-icon>favorite_border</mat-icon>
+  <span>the required location!</span>
+</div>

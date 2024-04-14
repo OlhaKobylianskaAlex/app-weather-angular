@@ -1,0 +1,13 @@
+<ng-container *ngIf="toggleValue; then trueIcon; else falseIcon"></ng-container>
+<ng-template #trueIcon>
+  <button mat-icon-button [matTooltip]="toolTip"
+    [style.color]="changeColor && (darkModeTheme$ | async) ? '#fff' : '#333333'" (click)="toggleBtn(false)">
+    <mat-icon>{{ toggleIconTrue }}</mat-icon>
+  </button>
+</ng-template>
+<ng-template #falseIcon>
+  <button mat-icon-button [matTooltip]="toolTip"
+    [style.color]="changeColor && (darkModeTheme$ | async) ? '#fff' : '#333333'" (click)="toggleBtn(true)">
+    <mat-icon>{{ toggleIconFalse }}</mat-icon>
+  </button>
+</ng-template>

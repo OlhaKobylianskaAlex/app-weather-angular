@@ -1,0 +1,66 @@
+@import "../../../../assets/styles/variables.scss";
+@import "../../../../assets/styles/mixins.scss";
+
+:host {
+  display: block;
+  border-bottom: 2px solid var(--color-dark);
+}
+
+header {
+  background-color: var(--color-bg);
+}
+
+.header-container {
+  @include container($xl, 60px, $gap);
+
+  &__block {
+    @include flex(space-between, center, $gap, row);
+
+    &--right {
+      justify-content: end;
+    }
+  }
+
+  &__logo {
+    font-size: 1rem;
+    color: var(--color-dark);
+    cursor: pointer;
+  }
+
+  &__nav {
+    button {
+      color: var(--color-dark);
+    }
+  }
+}
+
+.active {
+  color: var(--color-accent);
+}
+
+@media (max-width: $sm) {
+  .header-container {
+    padding: 20px;
+
+    &__block {
+      @include flex(space-between, center, $gap-x2, column);
+
+      &--right {
+        @include flex(flex-end, center, $gap-x2, row);
+        margin-bottom: $gap;
+      }
+    }
+
+    &__logo {
+      font-size: 1.5rem;
+    }
+
+    &__nav {
+      @include flex(space-between, center, $gap-x2, row);
+
+      button {
+        font-size: 1rem;
+      }
+    }
+  }
+}

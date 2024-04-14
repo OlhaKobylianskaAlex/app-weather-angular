@@ -1,0 +1,17 @@
+<div class="search">
+  <form class="search-form" [formGroup]="form">
+    <mat-form-field class="search-form__container">
+      <mat-label>Search</mat-label>
+      <input #input matInput formControlName="value" type="text" [matAutocomplete]="auto" (keyup)="onSearchSubmit()">
+      <div *ngIf="(filteredLocations$ | async)?.loading || (loader$ | async)" class="search-spinner">
+        <mat-progress-spinner color="primary" mode="indeterminate"></mat-progress-spinner>
+      </div>
+      <mat-autocomplete #auto="matAutocomplete">
+        <ng-container *ngFor="let item of (filteredLocations$ | async)?.data">
+          <mat-option [value]="item.LocalizedName" (click)="selectCurrentLocation(item)"> {{ item.LocalizedName }}
+          </mat-option>
+        </ng-container>
+      </mat-autocomplete>
+    </mat-form-field>
+  </form>
+</div>

@@ -1,0 +1,12 @@
+<ng-container *ngIf="currentWeather$ | async as data; else loading">
+  <ng-container *ngIf="!data.loading; else loading">
+    <ng-container [ngTemplateOutlet]="contentTemplate"
+      [ngTemplateOutletContext]="{ $implicit: data.data }"></ng-container>
+  </ng-container>
+</ng-container>
+
+<ng-template #loading>
+  <div class="spinner">
+    <mat-progress-spinner color="primary" mode="indeterminate"></mat-progress-spinner>
+  </div>
+</ng-template>

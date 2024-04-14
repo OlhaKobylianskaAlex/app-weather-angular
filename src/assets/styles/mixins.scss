@@ -1,0 +1,14 @@
+@mixin container($width: 1160px, $height: auto, $padding: 10px) {
+  max-width: $width;
+  min-height: $height;
+  margin: 0 auto;
+  padding: $padding;
+}
+
+@mixin flex($content: center, $align: center, $gap: 0, $direction: row) {
+  display: flex;
+  justify-content: $content;
+  align-items: $align;
+  flex-direction: $direction;
+  gap: $gap;
+}

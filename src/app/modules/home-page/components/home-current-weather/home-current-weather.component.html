@@ -1,0 +1,22 @@
+<ng-container *ngIf="data">
+  <mat-card class="today">
+    <div class="today-items">
+      <div class="today-items__images">
+        <img src="../../../../../assets/images/weather-icons/{{data.WeatherIcon}}.png" alt="img">
+      </div>
+      <mat-card-content class="today-items__content">
+        <div class="today-items__title" *ngIf="activeLocation$ | async as active">{{active.LocalizedName}}</div>
+        <div class="today-items__day">{{data.LocalObservationDateTime| date:'EEEE' }}</div>
+        <div class="today-items__degree">{{(imperialMeasure$ | async) ? data.Temperature.Imperial.Value + ' ' +
+          data.Temperature.Imperial.Unit : data.Temperature.Metric.Value + '&#176;C'}}
+        </div>
+      </mat-card-content>
+    </div>
+    <div class="today-favorites" *ngIf="activeLocation$ | async as active">
+      <app-toggle-btn [toolTip]="(isFavoritesLocation$ | async) ? 'Not Favorite' : 'Favorite'"
+        [toggleValue]="(isFavoritesLocation$ | async)!" [toggleIconTrue]="'favorite'"
+        [toggleIconFalse]="'favorite_border'" (toggleEmitter)="addDeleteFromFavorites(active, data, $event)"
+        [changeColor]="false"></app-toggle-btn>
+    </div>
+  </mat-card>
+</ng-container>

@@ -1,0 +1,31 @@
+@import "../../../assets/styles/variables.scss";
+@import "../../../assets/styles/mixins.scss";
+
+.error {
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+  inset: 0;
+  background: url("../../../assets/images/error-bg.jpg") center/cover no-repeat;
+
+  @include flex(center, center, $gap-x2, column);
+
+  &__title {
+    font-size: 8rem;
+    font-weight: 700;
+    color: $color-other;
+  }
+
+  &__description {
+    font-size: 2rem;
+    text-align: center;
+    color: $color-other;
+  }
+
+  &__btn {
+    width: 300px;
+    height: 60px;
+    text-transform: uppercase;
+    background-color: rgba($color-other, 0.05) !important;
+  }
+}

@@ -1,0 +1,54 @@
+@import "../../../../../assets/styles/variables.scss";
+@import "../../../../../assets/styles/mixins.scss";
+
+.future {
+  @include flex(space-between, center, $gap-x2, row);
+  margin-top: $gap-x2;
+  margin-bottom: 100px;
+
+  &-items {
+    width: 100%;
+    min-height: 200px;
+
+    &__content {
+      @include flex(center, center, $gap, column);
+      font-size: 0.8rem;
+    }
+
+    &__images {
+      max-height: 50px;
+
+      img {
+        height: 100%;
+      }
+    }
+
+    &__condition {
+      text-align: center;
+    }
+  }
+}
+
+@media (max-width: $md) {
+  .future {
+    @include flex(space-between, center, $gap-x2, column);
+
+    &-items {
+      min-height: auto;
+
+      &__content {
+        @include flex(space-between, center, $gap, row);
+      }
+    }
+  }
+}
+
+@media (max-width: $es) {
+  .future {
+    &-items {
+      &__content {
+        @include flex(space-between, center, $gap, column);
+      }
+    }
+  }
+}

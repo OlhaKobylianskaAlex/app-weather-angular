@@ -1,0 +1,41 @@
+@import "./assets/styles/mixins.scss";
+@import "./assets/styles/variables.scss";
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: Oswald, Arial;
+  font-size: 16px;
+  color: $color-text;
+  user-select: none;
+}
+
+a,
+a:visited,
+a:active {
+  text-transform: none;
+  text-decoration: none;
+  color: inherit;
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+mat-tab-link {
+  font-size: 1rem;
+}
+
+img {
+  -webkit-user-drag: none;
+}
+
+.spinner {
+  @include flex(center, center, 0, row);
+}

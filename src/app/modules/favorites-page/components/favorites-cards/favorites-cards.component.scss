@@ -1,0 +1,70 @@
+@import "../../../../../assets/styles/variables.scss";
+@import "../../../../../assets/styles/mixins.scss";
+
+.favorites {
+  @include flex(flex-start, center, $gap-x2, row);
+  flex-wrap: wrap;
+  margin-top: $gap-x2;
+
+  &-items {
+    width: calc((100% - 4 * $gap-x2) / 5);
+    min-height: 250px;
+    cursor: pointer;
+
+    &__content {
+      @include flex(center, center, $gap, column);
+      font-size: 1rem;
+    }
+
+    &__images {
+      max-height: 50px;
+
+      img {
+        height: 100%;
+      }
+    }
+  }
+
+  &-description {
+    @include flex(center, center, 10px, row);
+    color: var(--color-dark);
+    padding: 100px 0;
+  }
+}
+
+@media (max-width: $lg) {
+  .favorites-items {
+    width: calc((100% - 3 * $gap-x2) / 4);
+  }
+}
+
+@media (max-width: $md) {
+  .favorites-items {
+    width: calc((100% - 2 * $gap-x2) / 3);
+  }
+}
+
+@media (max-width: $sm) {
+  .favorites {
+    @include flex(flex-start, center, $gap-x2, column);
+
+    &-items {
+      width: 100%;
+      min-height: auto;
+
+      &__content {
+        @include flex(space-between, center, $gap, row);
+      }
+    }
+  }
+}
+
+@media (max-width: $es) {
+  .favorites {
+    &-items {
+      &__content {
+        @include flex(space-between, center, $gap, column);
+      }
+    }
+  }
+}

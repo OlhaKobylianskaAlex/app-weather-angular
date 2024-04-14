@@ -1,0 +1,23 @@
+<header>
+  <div class="header-container">
+    <div class="header-container__block header-container__block--right">
+      <app-toggle-btn [toolTip]="(imperialMeasure$ | async) ? 'Imperial' : 'Metric'"
+        [toggleValue]="(imperialMeasure$ | async)!" [toggleIconTrue]="'F'" [toggleIconFalse]="'&#176;C'"
+        (toggleEmitter)="setImperialMeasure()"></app-toggle-btn>
+      <app-toggle-btn [toolTip]="(darkModeTheme$ | async) ? 'Light Mode' : 'Dark Mode'"
+        [toggleValue]="(chartViewNextWeather$ | async)!" [toggleIconTrue]="'nightlight_round'"
+        [toggleIconFalse]="'nightlight_round'" (toggleEmitter)="setDarkMode()"></app-toggle-btn>
+    </div>
+    <div class="header-container__block">
+      <div class="header-container__logo" (click)="toTheMainPage()">MY WEATHER</div>
+      <nav class="header-container__nav">
+        <button mat-button>
+          <a mat-tab-link routerLink="/home" routerLinkActive="active">HOME</a>
+        </button>
+        <button mat-button>
+          <a mat-tab-link routerLink="/favorite" routerLinkActive="active">FAVORITE</a>
+        </button>
+      </nav>
+    </div>
+  </div>
+</header>
