@@ -1,4 +1,4 @@
 export const environment = {
-  API_KEY: 'HRGcGbBBWTO5CNO94B4isHEWmbQ6jmag',
+  API_KEY: 'MYwmUGJ1YOACkypOXJA1dl8anxGx94T4',
   API_HOST: 'http://dataservice.accuweather.com',
 };

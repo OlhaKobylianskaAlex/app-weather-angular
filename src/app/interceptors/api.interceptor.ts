@@ -16,9 +16,6 @@ export class ApiInterceptor implements HttpInterceptor {
       setParams: {
         apikey: environment.API_KEY,
         language: 'en-us'
-      },
-      setHeaders: {
-        'Access-Control-Allow-Origin': '*'
       }
     });
 
