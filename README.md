@@ -1,8 +1,12 @@
 # AppWeather
 
-To launch the application:
+### Page from Firebase: https://app-weather-923e7.web.app/
 
-- git clone https://github.com/OlhaKobylianskaAlex/app-weather-test.git
+<hr>
+
+# To launch the application:
+
+- git clone https://github.com/OlhaKobylianskaAlex/app-weather-angular.git
 - open the folder (or cd app-weather-test)
 - git checkout develop
 - npm install
