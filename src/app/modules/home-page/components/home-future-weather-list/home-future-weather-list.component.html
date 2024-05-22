@@ -2,9 +2,10 @@
   <mat-card *ngFor="let item of data" class="future-items">
     <mat-card-content class="future-items__content">
       <div class="future-items__days">{{item.Date| date:'EEEE' }}</div>
-      <div class="future-items__degree">{{item.Temperature.Maximum.Value}} {{item.Temperature.Maximum.Unit ===
-        'F'
-        ? 'F' : '&#176;C'}}
+      <div class="future-items__degree">{{(imperialMeasure$ | async) ? ((+item.Temperature.Maximum.Value * 1.8) + 32 |
+        round) :
+        item.Temperature.Maximum.Value}}
+        {{(imperialMeasure$ | async) ? 'F' : '&#176;C'}}
       </div>
       <div class="future-items__images">
         <img src="../../../../assets/images/weather-icons/{{item.Day.Icon}}.png" alt="img">

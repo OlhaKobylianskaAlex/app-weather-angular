@@ -11,7 +11,8 @@ export interface ILocation {
   AdministrativeArea: {
     ID: string,
     LocalizedName: string
-  }
+  },
+  WeatherText?: string
 }
 
 export interface ICurrentWeather {

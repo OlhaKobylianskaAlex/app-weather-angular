@@ -19,6 +19,7 @@ import { NgChartsModule } from 'ng2-charts';
 import { HomeFutureWeatherListComponent } from './components/home-future-weather-list/home-future-weather-list.component';
 import { HomeCurrentWeatherComponent } from './components/home-current-weather/home-current-weather.component';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { RoundPipe } from 'src/app/shared/pipes/round.pipe';
 
 
 @NgModule({
@@ -29,7 +30,7 @@ import { SharedModule } from 'src/app/shared/shared.module';
     HomeCurrentWeatherComponent,
     HomeFutureWeatherWrapperComponent,
     HomeFutureWeatherListComponent,
-    HomeFutureWeatherChartComponent
+    HomeFutureWeatherChartComponent,
   ],
   imports: [
     CommonModule,

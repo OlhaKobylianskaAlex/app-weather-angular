@@ -32,6 +32,7 @@ export class HomeFutureWeatherChartComponent implements OnInit, OnDestroy {
   ]).pipe(
     tap(([imperialMeasure, currentLocation]) => {
       this.axisY = imperialMeasure ? 'F' : '°C';
+      imperialMeasure ? this.initData(true) : this.initData(false);
       this.createChart();
     })
   );
@@ -49,10 +50,14 @@ export class HomeFutureWeatherChartComponent implements OnInit, OnDestroy {
     this.subscription?.unsubscribe();
   }
 
-  public initData() {
+  public initData(flag: boolean = false) {
+    this.dataSetDay = [];
+    this.dataSetNight = [];
+    this.labels = [];
+
     this.data.forEach(day => {
-      this.dataSetDay.push(day.Temperature.Maximum.Value);
-      this.dataSetNight.push(day.Temperature.Minimum.Value);
+      this.dataSetDay.push(flag ? (day.Temperature.Maximum.Value * 1.8) + 32 : day.Temperature.Maximum.Value);
+      this.dataSetNight.push(flag ? (day.Temperature.Minimum.Value * 1.8) + 32 : day.Temperature.Minimum.Value);
       this.labels.push(this.daysOfWeek(new Date(day.Date).getDay()));
     })
   }

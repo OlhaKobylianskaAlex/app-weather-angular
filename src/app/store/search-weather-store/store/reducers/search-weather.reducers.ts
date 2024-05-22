@@ -1,6 +1,6 @@
 import { Action, createReducer, on } from '@ngrx/store';
 import * as searchWeatherActions from '../actions/search-weather.actions';
-import { ICurrentWeather, IFavoriteLocation, ILocation, IFutureWeather } from 'src/app/shared/interfaces/interfaces';
+import { ICurrentWeather, ILocation, IFutureWeather } from 'src/app/shared/interfaces/interfaces';
 
 export interface ISearchWeatherState {
   locations: ILocation[];
@@ -10,7 +10,7 @@ export interface ISearchWeatherState {
   currentWeatherLoading: boolean;
   futureWeathers: IFutureWeather | null;
   futureWeatherLoading: boolean;
-  favoriteLocations: IFavoriteLocation[];
+  favoriteLocations: ILocation[];
   chartViewNextWeather: boolean;
 }
 
@@ -52,7 +52,7 @@ const searchWeatherReducer = createReducer(
   ),
   on(
     searchWeatherActions.deleteFavoriteLocationAction,
-    (state, { data }): ISearchWeatherState => ({ ...state, favoriteLocations: state.favoriteLocations?.filter(item => +item.Key !== +data.Key) })
+    (state, { data }): ISearchWeatherState => ({ ...state, favoriteLocations: state.favoriteLocations?.filter(key => +key !== +data) })
   ),
   on(
     searchWeatherActions.setChartViewFutureWeatherAction,

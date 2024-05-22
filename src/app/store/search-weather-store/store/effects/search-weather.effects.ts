@@ -16,7 +16,7 @@ import { DataService } from 'src/app/services/data-services/data.service';
 import { Store, select } from '@ngrx/store';
 import { selectCurrentLocation } from '../selectors/search-weather.selectors';
 import { CONSTANTS } from 'src/app/core-constants/constants';
-import { selectImperialMeasure } from 'src/app/store/app-settings-store/store/selectors/app-settings.selectors';
+
 
 @Injectable()
 export class SearchWeatherEffects {
@@ -80,9 +80,9 @@ export class SearchWeatherEffects {
   getFutureWeatherAction$ = createEffect(() => {
     return this._actions$.pipe(
       ofType(getFutureWeatherAction),
-      withLatestFrom(this._store.pipe(select(selectCurrentLocation)), this._store.pipe(select(selectImperialMeasure))),
-      switchMap(([action, location, metric]) =>
-        this._data.getFutureWeather(location?.Key || CONSTANTS.DEFAULT_LOCATION_KEY, metric).pipe(
+      withLatestFrom(this._store.pipe(select(selectCurrentLocation))),
+      switchMap(([action, location]) =>
+        this._data.getFutureWeather(location?.Key || CONSTANTS.DEFAULT_LOCATION_KEY).pipe(
           map(data => setFutureWeatherAction({ data }))
         )
       )

@@ -1,5 +1,5 @@
 import { createAction, props } from '@ngrx/store';
-import { ICurrentWeather, IFavoriteLocation, ILocation, IFutureWeather } from 'src/app/shared/interfaces/interfaces';
+import { ICurrentWeather, ILocation, IFutureWeather } from 'src/app/shared/interfaces/interfaces';
 
 export enum SearchWeatherActions {
   getSearchLocationsAction = '[SEARCH_WEATHER] GET_SEARCH_LOCATIONS_LOADING',
@@ -54,11 +54,11 @@ export const setCurrentLocationAction = createAction(
 
 export const setFavoriteLocationAction = createAction(
   SearchWeatherActions.setFavoriteLocationAction,
-  props<{ data: IFavoriteLocation }>()
+  props<{ data: ILocation }>()
 );
 export const deleteFavoriteLocationAction = createAction(
   SearchWeatherActions.deleteFavoriteLocationAction,
-  props<{ data: IFavoriteLocation }>()
+  props<{ data: ILocation }>()
 );
 
 export const setChartViewFutureWeatherAction = createAction(

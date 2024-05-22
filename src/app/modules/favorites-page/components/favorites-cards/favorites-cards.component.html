@@ -1,7 +1,8 @@
 <div class="favorites" *ngIf="data?.length">
   <mat-card *ngFor="let item of data" class="favorites-items" (click)="toTheCurrentWeather(item)">
     <mat-card-content class="favorites-items__content">
-      <div class="favorites-items__location">{{item.LocalizedName}}</div>
+      <div *ngIf="findItemInStorage(item)" class="favorites-items__location">
+        {{findItemInStorage(item)?.LocalizedName}}</div>
       <div class="favorites-items__degree">{{(imperialMeasure$ | async) ? item.Temperature.Imperial.Value + ' ' +
         item.Temperature.Imperial.Unit : item.Temperature.Metric.Value + '&#176;C'}}
       </div>

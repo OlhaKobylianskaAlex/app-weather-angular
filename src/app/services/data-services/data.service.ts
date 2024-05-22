@@ -12,7 +12,7 @@ export class DataService {
   private _cacheCurrentGeoLocation: Map<string, Observable<ILocation>> = new Map();
   private _cacheSearchLocationsAutocomolite: Map<string, Observable<ILocation[]>> = new Map();
   private _cacheCurrentWeather: Map<number, Observable<ICurrentWeather>> = new Map();
-  private _cacheFutureWeather: Map<string, Observable<IFutureWeather>> = new Map();
+  private _cacheFutureWeather: Map<number, Observable<IFutureWeather>> = new Map();
 
   constructor(private http: HttpClient) { }
 
@@ -73,16 +73,17 @@ export class DataService {
   }
 
 
-  getFutureWeather(locationKey: number, imperial = true): Observable<IFutureWeather> {
-    if (!this._cacheFutureWeather.has(`${locationKey}, ${imperial}`)) {
-      const data = this._getFutureWeather(locationKey, imperial).pipe(
+  getFutureWeather(locationKey: number): Observable<IFutureWeather> {
+    if (!this._cacheFutureWeather.has(locationKey)) {
+      const data = this._getFutureWeather(locationKey).pipe(
         catchError((error: any) => throwError(() => `Error: ${error}`))
       );
-      this._cacheFutureWeather.set(`${locationKey} ${imperial}`, data);
+      this._cacheFutureWeather.set(locationKey, data);
     }
-    return this._cacheFutureWeather.get(`${locationKey} ${imperial}`)!
+    return this._cacheFutureWeather.get(locationKey)!
   }
-  _getFutureWeather(locationKey: number, imperial = true): Observable<IFutureWeather> {
-    return this.http.get<IFutureWeather>(`/forecasts/v1/daily/5day/${locationKey}`, { params: { metric: !imperial } });
+  _getFutureWeather(locationKey: number): Observable<IFutureWeather> {
+    return this.http.get<IFutureWeather>(`/forecasts/v1/daily/5day/${locationKey}`, { params: { metric: true } });
   }
+
 }

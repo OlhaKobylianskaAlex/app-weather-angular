@@ -7,6 +7,7 @@
   position: absolute;
   inset: 0;
   background: url("../../../assets/images/error-bg.jpg") center/cover no-repeat;
+  z-index: 10000;
 
   @include flex(center, center, $gap-x2, column);
 
@@ -27,5 +28,17 @@
     height: 60px;
     text-transform: uppercase;
     background-color: rgba($color-other, 0.05) !important;
+  }
+}
+
+@media (max-width: $lg) {
+  .error__title {
+    font-size: 5rem;
+  }
+}
+
+@media (max-width: $md) {
+  .error__title {
+    font-size: 3rem;
   }
 }

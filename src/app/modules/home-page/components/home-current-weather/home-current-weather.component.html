@@ -15,7 +15,7 @@
     <div class="today-favorites" *ngIf="activeLocation$ | async as active">
       <app-toggle-btn [toolTip]="(isFavoritesLocation$ | async) ? 'Not Favorite' : 'Favorite'"
         [toggleValue]="(isFavoritesLocation$ | async)!" [toggleIconTrue]="'favorite'"
-        [toggleIconFalse]="'favorite_border'" (toggleEmitter)="addDeleteFromFavorites(active, data, $event)"
+        [toggleIconFalse]="'favorite_border'" (toggleEmitter)="addDeleteFromFavorites(active, $event)"
         [changeColor]="false"></app-toggle-btn>
     </div>
   </mat-card>

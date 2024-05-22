@@ -7,10 +7,11 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { RouterModule } from '@angular/router';
 import { AppSettingsStoreModule } from '../store/app-settings-store/app-settings-store.module';
 import { ToggleBtnComponent } from './components/toggle-btn/toggle-btn.component';
+import { RoundPipe } from './pipes/round.pipe';
 
 
 @NgModule({
-  declarations: [HeaderComponent, ToggleBtnComponent],
+  declarations: [HeaderComponent, ToggleBtnComponent, RoundPipe],
   imports: [
     CommonModule,
     RouterModule,
@@ -19,6 +20,6 @@ import { ToggleBtnComponent } from './components/toggle-btn/toggle-btn.component
     MatIconModule,
     MatTooltipModule,
   ],
-  exports: [HeaderComponent, ToggleBtnComponent]
+  exports: [HeaderComponent, ToggleBtnComponent, RoundPipe]
 })
 export class SharedModule { }
