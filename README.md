@@ -1,7 +1,5 @@
 # AppWeather
 
-### Page from Firebase: https://app-weather-923e7.web.app/
-
 <hr>
 
 # To launch the application:
